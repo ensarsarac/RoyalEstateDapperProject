@@ -1,0 +1,79 @@
+﻿@model List<ResultPropertyWithCategoryAndLocationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-md-12 mt-5">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>İlan Listesi</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>İlan Başlığı</th>
+                            <th>Metre Kare</th>
+                            <th>Yatak Sayısı</th>
+                            <th>Banyo Sayısı</th>
+                            <th>Kategori</th>
+                            <th>Lokasyon</th>
+                            <th>Adres</th>
+                            <th>Fiyat</th>
+                            <th>Video</th>
+                            <th>Durum</th>
+                            <th>Öne Çıkan İlan</th>
+                            <th>Öne Çıkan İlanlara Ekle</th>
+                            <th>Öne Çıkan İlanlardan Çıkar</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count > 0)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.PropertyId</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Sqft</td>
+                                    <td>@item.Bedroom</td>
+                                    <td>@item.Bathroom</td>
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.Location</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Price</td>
+                                    <td><a href="@item.VideoUrl">Video İçin Tıklayın</a></td>
+                                    <td>@item.Status</td>
+                                    @if (item.IsRecent)
+                                    {
+                                        <td><span class="badge badge-success">Öne Çıkan İlan</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge badge-danger">Öne Çıkan İlan Değildir!</span></td>
+                                    }
+                                    <td><a href="/Admin/Property/FeaturePropertyTrue/@item.PropertyId" class="btn btn-success">+</a></td>
+                                    <td><a href="/Admin/Property/FeaturePropertyFalse/@item.PropertyId" class="btn btn-dark">-</a></td>
+                                    <td><a href="/Admin/Property/DeleteProperty/@item.PropertyId" class="btn btn-danger"><i class="fa fa-trash white_color"></i></a></td>
+                                    <td><a href="/Admin/Property/UpdateProperty/@item.PropertyId" class="btn btn-warning"><i class="fa fa-edit white_color"></i></a></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning">Herhangi bir kayıt bulunamadı.</div>
+                        }
+
+                    </tbody>
+                </table>
+                <a href="/Admin/Property/CreateProperty" class="btn btn-primary">Yeni İlan Girişi</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model GetByIdNewsletterDto
+@{
+    ViewData["Title"] = "UpdateNewsletter";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12 mt-5">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>Mail Bülteni Güncelle</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                <form method="post">
+                    <input type="hidden" asp-for="@Model.NewsletterId" />
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" asp-for="@Model.Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

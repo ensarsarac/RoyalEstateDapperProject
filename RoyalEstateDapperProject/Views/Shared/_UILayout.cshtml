@@ -1,0 +1,16 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_UILayoutHeadComponent")
+<body>
+	@await Component.InvokeAsync("_UILayoutTopBarComponent")
+	@await Component.InvokeAsync("_UILayoutNavbarComponent")
+	@await Component.InvokeAsync("_UILayoutHeroComponent")
+	@RenderBody()
+	@await Component.InvokeAsync("_UILayoutNewsletterComponent")
+	@await Component.InvokeAsync("_UILayoutFooterComponent")
+	@await Component.InvokeAsync("_UILayoutLoaderComponent")
+	@await Component.InvokeAsync("_UILayoutScriptComponent")
+</body>
+</html>

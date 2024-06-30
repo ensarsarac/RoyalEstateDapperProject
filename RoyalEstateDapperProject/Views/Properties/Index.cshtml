@@ -1,0 +1,65 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<ResultPropertyWithCategoryAndLocationDto>
+@{
+    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "İlanlar";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+@await Component.InvokeAsync("_UILayoutSearchPropertyComponent")
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 ftco-animate">
+                    <div class="properties">
+                        <a href="property-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.ImageUrl1);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <span class="status sale">@item.Status</span>
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="property-single.html">@item.Title</a></h3>
+                                    <p>@item.CategoryName</p>
+                                </div>
+                                <div class="two">
+                                    @if (item.Status == "Kiralık")
+                                    {
+                                        <span class="price">@item.Price ₺ / aylık</span>
+                                    }
+                                    else
+                                    {
+                                    <span class="price">@item.Price ₺</span>
+                                    }
+                                </div>
+                            </div>
+                            <p>@Html.Raw(item.Description.Substring(0,100))</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="flaticon-selection"></i> @item.Sqft m2</span>
+                                <span class="ml-auto"><i class="flaticon-bathtub"></i> @item.Bathroom</span>
+                                <span><i class="flaticon-bed"></i> @item.Bedroom</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
+           {
+               ContainerDivClasses = new[] { "navigation" },
+               LiElementClasses = new[] { "page-item" },
+               PageClasses = new[] { "page-link" },
+           })
+            </div>
+        </div>
+    </div>
+  
+</section>

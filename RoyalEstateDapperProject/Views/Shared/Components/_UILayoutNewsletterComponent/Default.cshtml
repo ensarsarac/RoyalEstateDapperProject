@@ -1,0 +1,60 @@
+﻿
+
+<section class="ftco-section-parallax">
+    <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                    <h2>Bültenimize Abone Olun</h2>
+                    <p>
+                        En güncel emlak haberleri, özel teklifler ve sektördeki yeniliklerden haberdar olmak için bültenimize abone olun. Size özel fırsatları kaçırmamak ve hayalinizdeki evi bulmak için hemen abone olun!
+
+                    </p>
+                    <div class="row d-flex justify-content-center mt-5">
+                        <div class="col-md-8">
+                            <form class="subscribe-form">
+                                <div class="form-group d-flex">
+                                    <input type="text" id="mail" class="form-control" placeholder="Email Adresiniz">
+                                    <button type="button" id="btn" class="btn btn-primary">Abone Ol</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelector("#btn").addEventListener("click", (e) => {
+        e.preventDefault();
+        let email = $("#mail").val();
+        console.log(email);
+        $.ajax({
+            method: "post",
+            url: "/Newsletter/CreateNewsletter",
+            data: { Email: email },
+            success: function () {
+                Swal.fire({
+                    icon: "success",
+                    text: "Kayıt başarıyla eklendi!",
+                    showConfirmButton: true,
+                    confirmButtonText:"Tamam",
+                    }).then(() => {
+                        window.location.href="/Default/Index"
+                });
+            },
+            error: function () {
+                Swal.fire({
+                    icon: "error",
+                    text: "Mail kayıt edilirken hata oluştu.!",
+                    showCancelButton: true,
+                    showConfirmButton: false,
+                    cancelButtonText: "Kapat",
+                });
+            }
+        })
+    });
+</script>

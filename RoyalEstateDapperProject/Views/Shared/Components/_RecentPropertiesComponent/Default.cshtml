@@ -1,0 +1,51 @@
+﻿@model List<ResultRecentPropertiesDto>
+
+<section class="ftco-section ftco-properties">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+			<div class="col-md-7 heading-section text-center ftco-animate">
+				<span class="subheading">Öne Çıkanlar</span>
+				<h2 class="mb-4">Öne Çıkan İlanlar</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="properties-slider owl-carousel ftco-animate">
+					@if(Model.Count > 0)
+					{
+						@foreach (var item in Model)
+						{
+							<div class="item">
+								<div class="properties">
+									<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(@item.ImageUrl1);">
+										<div class="icon d-flex justify-content-center align-items-center">
+											<span class="icon-search2"></span>
+										</div>
+									</a>
+									<div class="text p-3">
+										<span class="status sale">@item.Status</span>
+										<div class="d-flex">
+											<div class="one">
+												<h3><a href="#">@item.Title</a></h3>
+												<p>@item.CategoryName</p>
+											</div>
+											<div class="two">
+												<span class="price">@item.Price</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					}
+				</div>
+			</div>
+		</div>
+		@if(Model.Count <= 0)
+		{
+			<div class="row">
+				<div class="col-12 alert alert-warning">Öne Çıkan İlan Bulunamadı.</div>
+			</div>
+		}
+	</div>
+</section>

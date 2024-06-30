@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_UILayoutHeadComponent")
+<body>
+	@await Component.InvokeAsync("_UILayoutTopBarComponent")
+	@await Component.InvokeAsync("_UILayoutNavbarComponent")
+	@await Component.InvokeAsync("_SliderComponent")
+	@await Component.InvokeAsync("_UILayoutSearchPropertyComponent")
+	@await Component.InvokeAsync("_FeaturesComponent")
+	@await Component.InvokeAsync("_RecentPropertiesComponent")
+	@await Component.InvokeAsync("_SpecialOfferPropertyComponent")
+	@await Component.InvokeAsync("_StatisticComponent")
+	@await Component.InvokeAsync("_TestimonialComponent")
+	@await Component.InvokeAsync("_UILayoutNewsletterComponent")
+	@await Component.InvokeAsync("_UILayoutFooterComponent")
+	@await Component.InvokeAsync("_UILayoutLoaderComponent")
+	@await Component.InvokeAsync("_UILayoutScriptComponent")
+</body>
+</html>
