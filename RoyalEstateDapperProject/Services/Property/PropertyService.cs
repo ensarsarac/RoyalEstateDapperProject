@@ -159,5 +159,25 @@ namespace RoyalEstateDapperProject.Services.Property
 			var value = await connnection.QueryAsync<GetMaxCategoryNameDto>(query);
 			return value.FirstOrDefault();
 		}
+
+        public async Task<GetByIdPropertyWithCategoryAndLocationDto> GetByIdPropertyWithIncludeAsync(int id)
+        {
+            string query = "select * from Properties inner join Categories on Properties.CategoryId = Categories.CategoryId inner join Locations on Properties.LocationId = Locations.LocationId where PropertyId=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+            var connection = _dapperContext.SqlConnection();
+            var values = await connection.QueryFirstOrDefaultAsync<GetByIdPropertyWithCategoryAndLocationDto>(query,parameters);
+            return values;
+        }
+
+        public async Task<List<ResultPropertyWithCategoryAndLocationDto>> GetAllPropertyByCategoryIdAsync(int categoryId)
+        {
+            string query = "select * from Properties inner join Categories on Properties.CategoryId = Categories.CategoryId inner join Locations on Properties.LocationId = Locations.LocationId where Properties.CategoryId=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", categoryId);
+            var connection = _dapperContext.SqlConnection();
+            var values = await connection.QueryAsync<ResultPropertyWithCategoryAndLocationDto>(query,parameters);
+            return values.ToList();
+        }
     }
 }

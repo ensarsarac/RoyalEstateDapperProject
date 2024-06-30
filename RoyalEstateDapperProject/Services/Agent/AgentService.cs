@@ -16,10 +16,11 @@ namespace RoyalEstateDapperProject.Services.Agent
 
         public async Task CreateAgentAsync(CreateAgentDto createAgentDto)
         {
-            string query = "insert into Agent (NameSurname,Description) values (@namesurname,@description)";
+            string query = "insert into Agent (NameSurname,Description,ImageUrl) values (@namesurname,@description,@imageurl)";
             var parameters = new DynamicParameters();
             parameters.Add("@namesurname", createAgentDto.NameSurname);
             parameters.Add("@description", createAgentDto.Description);
+            parameters.Add("@imageurl", createAgentDto.ImageUrl);
             var connection = _dapperContext.SqlConnection();
             await connection.ExecuteAsync(query, parameters);
         }
@@ -52,11 +53,12 @@ namespace RoyalEstateDapperProject.Services.Agent
 
         public async Task UpdateAgentAsync(UpdateAgentDto updateAgentDto)
         {
-            string query = "update Agent set NameSurname=@namesurname,Description=@description where AgentId=@agentid";
+            string query = "update Agent set NameSurname=@namesurname,Description=@description,ImageUrl=@imageurl where AgentId=@agentid";
             var parameters = new DynamicParameters();
             parameters.Add("@namesurname", updateAgentDto.NameSurname);
             parameters.Add("@description", updateAgentDto.Description);
             parameters.Add("@agentid", updateAgentDto.AgentId);
+            parameters.Add("@imageurl", updateAgentDto.ImageUrl);
             var connection = _dapperContext.SqlConnection();
             await connection.ExecuteAsync(query, parameters);
         }

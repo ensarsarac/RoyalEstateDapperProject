@@ -1,20 +1,17 @@
-﻿
-@model List<ResultSpecialOfferPropertyDto>
+﻿@model List<ResultPropertyWithCategoryAndLocationDto>
+@{
+    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = Model[0].CategoryName;
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
 
+@await Component.InvokeAsync("_UILayoutSearchPropertyComponent")
 <section class="ftco-section bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <span class="subheading">Özel İlanlar</span>
-                <h2 class="mb-4">Önerilen Özel İlanlar</h2>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-sm col-md-6 col-lg ftco-animate">
+                <div class="col-md-4 ftco-animate">
                     <div class="properties">
                         <a href="/Properties/Details/@item.PropertyId" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.ImageUrl1);">
                             <div class="icon d-flex justify-content-center align-items-center">
@@ -29,27 +26,17 @@
                                     <p>@item.CategoryName</p>
                                 </div>
                                 <div class="two">
-                                    @if(item.Status == "Kiralık")
+                                    @if (item.Status == "Kiralık")
                                     {
-                                        <span class="price">@item.Price ₺ / Aylık</span>
+                                        <span class="price">@item.Price ₺ / aylık</span>
                                     }
                                     else
                                     {
                                         <span class="price">@item.Price ₺</span>
                                     }
-
                                 </div>
                             </div>
-                           
-                            @if(Html.Raw(item.Description).ToString().Length < 100)
-                            {
-                                <p>@Html.Raw(item.Description)</p>
-                            }
-                            else
-                            {
-                                <p>@Html.Raw(item.Description.Substring(0,100))</p>
-                            }
-                            
+                            <p>@Html.Raw(item.Description.Substring(0, 100))</p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="flaticon-selection"></i> @item.Sqft m2</span>
@@ -59,8 +46,13 @@
                         </div>
                     </div>
                 </div>
-
             }
+
+        </div>
+        <div class="row">
+           
         </div>
     </div>
+
 </section>
+

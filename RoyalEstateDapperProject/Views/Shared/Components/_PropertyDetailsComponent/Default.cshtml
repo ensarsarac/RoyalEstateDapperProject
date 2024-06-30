@@ -1,0 +1,43 @@
+﻿@model GetByIdPropertyWithCategoryAndLocationDto
+<div class="col-lg-8">
+    <div class="row">
+        <div class="col-md-12 ftco-animate">
+            <div class="single-slider owl-carousel">
+                <div class="item">
+                    <div class="properties-img" style="background-image: url(@Model.ImageUrl1);"></div>
+                </div>
+                <div class="item">
+                    <div class="properties-img" style="background-image: url(@Model.ImageUrl2);"></div>
+                </div>
+                <div class="item">
+                    <div class="properties-img" style="background-image: url(@Model.ImageUrl3);"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
+            <h2>@Model.Title</h2>
+            <p class="rate mb-4">
+                <span class="loc"><a href="#"><i class="icon-map"></i> @Model.Location @Model.Address</a></span>
+            </p>
+            <p>@Html.Raw(Model.Description)</p>
+        </div>
+        <div class="col-md-12 properties-single ftco-animate mb-5 mt-4">
+            <h3 class="mb-4">Video Tanıtım</h3>
+            <div class="block-16">
+                <iframe width="560" height="315" src="@GetEmbedUrl(Model.VideoUrl)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        
+        @await Component.InvokeAsync("_RecentPropertiesComponent")
+
+    </div>
+</div>
+
+    @functions {
+        public string GetEmbedUrl(string youtubeUrl)
+        {
+            var videoId = youtubeUrl.Split("v=")[1].Split('&')[0];
+            return $"https://www.youtube.com/embed/{videoId}";
+        }
+    }

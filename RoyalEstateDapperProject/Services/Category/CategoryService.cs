@@ -48,6 +48,14 @@ namespace RoyalEstateDapperProject.Services.Category
             return await connection.QueryFirstOrDefaultAsync<GetByIdCategoryDto>(query, parameters);
         }
 
+        public async Task<List<GetCategoryNameAndCountDto>> GetCategoryNameAndCount()
+        {
+            string query = "select count(*)as 'CategoryCount',CategoryName,Categories.CategoryId from Properties inner join Categories on Properties.CategoryId = Categories.CategoryId group by Properties.CategoryId,CategoryName,Categories.CategoryId";
+            var connection = _dapperContext.SqlConnection();
+            var values = await connection.QueryAsync<GetCategoryNameAndCountDto>(query);
+            return values.ToList();
+        }
+
         public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
         {
             string query = "update Categories set CategoryName=@categoryname where CategoryId=@categoryid";

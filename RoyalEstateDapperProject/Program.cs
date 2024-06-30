@@ -9,6 +9,7 @@ using RoyalEstateDapperProject.Services.Agent;
 using RoyalEstateDapperProject.Services.Testimonial;
 using RoyalEstateDapperProject.Services.Newsletter;
 using RoyalEstateDapperProject.Services.SendMail;
+using RoyalEstateDapperProject.Services.Tag;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ builder.Services.AddScoped<IAgentService,AgentService>();
 builder.Services.AddScoped<ITestimonialService,TestimonialService>();
 builder.Services.AddScoped<INewsletterService,NewsletterService>();
 builder.Services.AddScoped<ISendMailService,SendMailService>();
+builder.Services.AddScoped<ITagService,TagService>();
 
 var app = builder.Build();
 

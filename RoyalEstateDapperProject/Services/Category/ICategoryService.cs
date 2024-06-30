@@ -9,5 +9,6 @@ namespace RoyalEstateDapperProject.Services.Category
         Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto);
         Task DeleteCategoryAsync(int id);
         Task<GetByIdCategoryDto> GetByIdCategoryAsync(int id);
+        Task<List<GetCategoryNameAndCountDto>> GetCategoryNameAndCount();
     }
 }

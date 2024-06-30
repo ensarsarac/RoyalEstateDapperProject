@@ -19,5 +19,11 @@ namespace RoyalEstateDapperProject.Controllers
             var result = values.ToPagedList(page,pageSize);
             return View(result);
         }
+        public async Task<IActionResult> Details(int id)
+        {
+
+            return View(id);
+        }
+
     }
 }

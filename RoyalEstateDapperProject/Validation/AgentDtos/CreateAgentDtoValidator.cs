@@ -9,6 +9,7 @@ namespace RoyalEstateDapperProject.Validation.AgentDtos
         {
             RuleFor(x => x.NameSurname).NotEmpty().WithMessage("Ad soyad boş bırakılamaz.");
             RuleFor(x => x.Description).NotEmpty().WithMessage("Açıklama boş bırakılamaz.");
+            RuleFor(x => x.ImageUrl).NotEmpty().WithMessage("Görsel linki boş bırakılamaz.");
         }
     }
 }
