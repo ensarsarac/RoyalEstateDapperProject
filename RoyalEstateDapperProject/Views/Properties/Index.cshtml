@@ -51,7 +51,7 @@
            
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
            {
                ContainerDivClasses = new[] { "navigation" },
