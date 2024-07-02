@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-md-12 search-wrap">
 				<h2 class="heading h5 d-flex align-items-center pr-4"><span class="ion-ios-search mr-3"></span> İlan Ara</h2>
-				<form action="#" class="search-property">
+				<form action="/Properties/Index" class="search-property">
 					<div class="row">
 						
 						<div class="col-md align-items-end">
@@ -12,7 +12,7 @@
 								<label for="#">Lokasyon</label>
 								<div class="form-field">
 									<div class="icon"><span class="icon-my_location"></span></div>
-									<input type="text" name="Location" class="form-control" placeholder="City/Locality Name">
+									<input type="text" required name="Location" class="form-control" placeholder="Lokasyon Adı">
 								</div>
 							</div>
 						</div>
@@ -22,8 +22,8 @@
 								<div class="form-field">
 									<div class="select-wrap">
 										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-										<select name="PropertyStatus" id="" class="form-control">
-											<option value="">Type</option>
+										<select name="PropertyStatus" required id="" class="form-control">
+											<option value="">İlan Türü</option>
 											<option value="Kiralık">Kiralık</option>
 											<option value="Satılık">Satılık</option>
 										</select>
@@ -33,11 +33,11 @@
 						</div>
 						<div class="col-md align-items-end">
 							<div class="form-group">
-								<label for="#">Minimum Price</label>
+								<label for="#">Minimum Fiyat</label>
 								<div class="form-field">
 									<div class="select-wrap">
 										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-										<input type="text" name="MinimumPrice" class="form-control" placeholder="Minimum Fiyat">
+										<input type="text" required name="MinimumPrice" class="form-control" placeholder="Minimum Fiyat">
 									</div>
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 							<div class="form-field">
 								<div class="select-wrap">
 									<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-									<input type="text" name="MaximumPrice" class="form-control" placeholder="Maximum Fiyat">
+									<input type="text" required name="MaximumPrice" class="form-control" placeholder="Maximum Fiyat">
 								</div>
 							</div>
 						</div>

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using RoyalEstateDapperProject.Context;
 using RoyalEstateDapperProject.Dtos.PropertyDtos;
+using RoyalEstateDapperProject.Models;
 
 namespace RoyalEstateDapperProject.Services.Property
 {
@@ -178,6 +179,19 @@ namespace RoyalEstateDapperProject.Services.Property
             var connection = _dapperContext.SqlConnection();
             var values = await connection.QueryAsync<ResultPropertyWithCategoryAndLocationDto>(query,parameters);
             return values.ToList();
+        }
+
+        public async Task<List<ResultPropertyWithCategoryAndLocationDto>> GetAllPropertyByFilterAsync(SearchPropertyViewModel model)
+        {
+            string query = @"select * from Properties inner join Categories on Properties.CategoryId = Categories.CategoryId inner join Locations on Properties.LocationId = Locations.LocationId where (Address like '%' + @location + '%') and (Price between @minprice and @maxprice) and (Status=@status)";
+            var parameters = new DynamicParameters();
+            parameters.Add("@location", model.Location.ToString());
+            parameters.Add("@minprice", model.MinimumPrice);
+            parameters.Add("@maxprice", model.MaximumPrice);
+            parameters.Add("@status", model.PropertyStatus.ToString());
+            var connection = _dapperContext.SqlConnection();
+            var values = await connection.QueryAsync<ResultPropertyWithCategoryAndLocationDto>(query,parameters);
+            return values.ToList(); 
         }
     }
 }

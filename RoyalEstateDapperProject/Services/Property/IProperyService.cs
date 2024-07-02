@@ -1,4 +1,5 @@
 ﻿using RoyalEstateDapperProject.Dtos.PropertyDtos;
+using RoyalEstateDapperProject.Models;
 
 namespace RoyalEstateDapperProject.Services.Property
 {
@@ -6,6 +7,7 @@ namespace RoyalEstateDapperProject.Services.Property
     {
         Task<List<ResultPropertyWithCategoryAndLocationDto>> GetAllPropertyCategoryAndLocationAsync();
         Task<List<ResultPropertyWithCategoryAndLocationDto>> GetAllPropertyByCategoryIdAsync(int categoryId);
+        Task<List<ResultPropertyWithCategoryAndLocationDto>> GetAllPropertyByFilterAsync(SearchPropertyViewModel model);
         Task CreatePropertyAsync(CreatePropertyDto createPropertyDto);
         Task UpdatePropertyAsync(UpdatePropertyDto updatePropertyDto);
         Task DeletePropertyAsync(int id);
