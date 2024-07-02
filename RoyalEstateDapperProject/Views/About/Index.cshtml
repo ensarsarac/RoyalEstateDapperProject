@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "Hakkımızda";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<section class="ftco-section ftc-no-pb">
+	<div class="container">
+		<div class="row no-gutters">
+			<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/royalestate-master/images/about.jpg);">
+				<a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+					<span class="icon-play"></span>
+				</a>
+			</div>
+			<div class="col-md-7 wrap-about pb-md-5 ftco-animate">
+				<div class="heading-section heading-section-wo-line mb-5 pl-md-5">
+					<div class="pl-md-5 ml-md-5">
+						<h2 class="mb-4">Emlak Deneyiminizde Güvenilir İş Ortağınız</h2>
+					</div>
+				</div>
+				<div class="pl-md-5 ml-md-5 mb-5">
+					<p>
+						Uzman ekibimiz ve geniş portföyümüzle, sizlere kaliteli ve güvenilir emlak hizmetleri sunuyoruz. Her adımda müşteri memnuniyetini ön planda tutarak, ev arama ve satış süreçlerinizi kolaylaştırmak için buradayız. Tecrübemiz ve yerel bilgimizle, hayalinizdeki evi bulmanıza yardımcı oluyoruz. Detaylı bilgi için bizimle iletişime geçin!"
+
+					</p>
+					<p>Bu açıklama, şirketinizin profesyonelliğini ve müşteri odaklı hizmetlerini vurgulayan bir ton kullanarak, potansiyel müşterilere güven verirken, hizmetlerinizin öne çıkan yönlerini anlatıyor.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+@await Component.InvokeAsync("_StatisticComponent")
+@await Component.InvokeAsync("_TestimonialComponent")

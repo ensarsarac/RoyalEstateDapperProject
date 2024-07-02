@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RoyalEstateDapperProject.Services.Agent;
 
 namespace RoyalEstateDapperProject.Controllers
 {
     public class AgentController : Controller
     {
-        public IActionResult Index()
+        private readonly IAgentService _agentService;
+
+        public AgentController(IAgentService agentService)
         {
-            return View();
+            _agentService = agentService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var values = await _agentService.GetAllAgentAsync();
+            return View(values);
         }
     }
 }
