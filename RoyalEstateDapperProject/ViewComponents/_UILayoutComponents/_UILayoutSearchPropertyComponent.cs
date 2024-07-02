@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RoyalEstateDapperProject.Models;
 
 namespace RoyalEstateDapperProject.ViewComponents._UILayoutComponents
 {
@@ -6,7 +7,7 @@ namespace RoyalEstateDapperProject.ViewComponents._UILayoutComponents
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            return View(new SearchPropertyViewModel());
         }
     }
 }
