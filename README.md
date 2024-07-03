@@ -1,7 +1,7 @@
 <h1>Royal Estate - Dapper Project</h1>
 <h3>Projenin Temel Amacı</h3>
 <p>Bu proje tamamen Dapper ORM kullanılarak geliştirilmiştir. Kullanıcılar, ilanları görüntüleyebilir ve seçilen ilanların detaylarına bakabilirler.
-  Ayrıca, çeşitli kriterlere göre ilanları filtreleme imkanı da bulunmaktadır.</p>
+  Ayrıca, çeşitli kriterlere göre ilanları filtreleme imkanı da bulunmaktadır. Admin paneli üzerinden tüm alanlar yönetilmektedir.</p>
   <p>ASP.NET Core 6.0 MVC kullanılarak geliştirdiğimiz proje, tüm CRUD işlemlerini Dapper ORM üzerinden sorgularla gerçekleştirir.</p>
 <h3>Kullanılan Teknoloji</h3>
  <ul>
