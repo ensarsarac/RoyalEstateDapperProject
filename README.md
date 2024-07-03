@@ -7,6 +7,7 @@
  <ul>
    <li>Asp.Net Core 6.0</li>
    <li>MSSQL</li>
+   <li>MSSQL Views
    <li>Dapper</li>
    <li>Tinymce</li>
    <li>MailKit</li>
