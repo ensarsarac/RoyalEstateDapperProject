@@ -38,6 +38,6 @@
 ![resim7](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/99275e60-9b68-443e-8888-6e523b27c3aa)
 
 <h5>Kaggle Veri Seti üzerinden işlemler</h5>
-![resim1](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/1a2cd19f-59cd-4501-8986-7d604bb75f2f)
+<img src="https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/1a2cd19f-59cd-4501-8986-7d604bb75f2f"/>
 
 ![resim2](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/b478dd6d-d6fd-4f77-8aa5-9707b12ed1c3)
