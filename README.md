@@ -9,6 +9,8 @@
    <li>MSSQL</li>
    <li>MSSQL Views
    <li>Dapper</li>
+   <li>Kaggle</li>
+   <li>Google Chart</li>
    <li>Tinymce</li>
    <li>MailKit</li>
    <li>FluentValidation</li>
@@ -34,3 +36,8 @@
 ![resim8](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/72dfa02b-2ad1-4150-b3f2-1afef6374a02)
 
 ![resim7](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/99275e60-9b68-443e-8888-6e523b27c3aa)
+
+<h5>Kaggle Veri Seti üzerinden işlemler</h5>
+![resim1](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/1a2cd19f-59cd-4501-8986-7d604bb75f2f)
+
+![resim2](https://github.com/ensarsarac/RoyalEstateDapperProject/assets/76907308/b478dd6d-d6fd-4f77-8aa5-9707b12ed1c3)
