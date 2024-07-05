@@ -1,0 +1,106 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<ResultRealEstateDataDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row column1 mt-5">
+    <div class="col-md-6 col-lg-3 py-3">
+        <div class="full counter_section margin_bottom_30">
+            <div class="couter_icon">
+                <div>
+                    <i class="fa fa-money green_color"></i>
+                </div>
+            </div>
+            <div class="counter_no">
+                <div>
+                    <p class="total_no">@ViewBag.salesCount</p>
+                    <p class="head_couter">Satılık Yapı Sayısı</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3 py-3">
+        <div class="full counter_section margin_bottom_30">
+            <div class="couter_icon">
+                <div>
+                    <i class="fa fa-clock-o blue1_color"></i>
+                </div>
+            </div>
+            <div class="counter_no">
+                <div>
+                    <p class="total_no">@ViewBag.soldCount</p>
+                    <p class="head_couter">Satılan Yapı Sayısı</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3 py-3">
+        <div class="full counter_section margin_bottom_30">
+            <div class="couter_icon">
+                <div>
+                    <i class="fa fa-building orange_color"></i>
+                </div>
+            </div>
+            <div class="counter_no">
+                <div>
+                    <p class="total_no">@ViewBag.buildCount</p>
+                    <p class="head_couter">İnşa Halinde Yapı Sayısı</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-3 py-3">
+        <div class="full counter_section margin_bottom_30">
+            <div class="couter_icon">
+                <div>
+                    <i class="fa fa-money yellow_color"></i>
+                </div>
+            </div>
+            <div class="counter_no">
+                <div>
+                    <p class="total_no">@ViewBag.avgPrice</p>
+                    <p class="head_couter">Ortalama Yapı Fiyatları</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h4>Real Estate Data</h4>
+            <hr />
+        </div>
+    </div>
+    <table class="table table-striped">
+    <tr>
+        <th>Şehir</th>
+        <th>Sokak</th>
+        <th>Arazi Dönüm</th>
+        <th>Fiyat</th>
+        <th>Durum</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.city</td>
+            <td>@item.street</td>
+            <td>@item.acre_lot</td>
+            <td>@item.price</td>
+            <td>@item.status</td>
+        </tr>
+    }
+    </table>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index","Dashboard", new {area="Admin", page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
+       {
+           ContainerDivClasses = new[] { "navigation" },
+           LiElementClasses = new[] { "page-item" },
+           PageClasses = new[] { "page-link" },
+       })
+        </div>
+    </div>
