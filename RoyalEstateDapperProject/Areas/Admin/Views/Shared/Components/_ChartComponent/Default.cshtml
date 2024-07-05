@@ -1,0 +1,34 @@
+﻿<div class="w-100 h-100" id="Piechart_div"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawLoad);
+
+    function drawLoad() {
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: '/Admin/Dashboard/Chart/',
+                dataType: "json",
+                success: function (result) {
+                    console.log(result)
+                    var Data = result.list;
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', "state");
+                    data.addColumn('number', "count");
+
+                    for (var i = 0; i < Data.length; i++) {
+                        data.addRow([Data[i].state, Data[i].count]);
+                    }
+                    var chart = new google.visualization.LineChart(document.getElementById('Piechart_div'));
+                    chart.draw(data, {
+                        title: "Eyaletlere göre yapılan veya yapılmakta olan yapılar",
+                        fontSize: 16,
+                    });
+                },
+            });
+        });
+    }
+</script>

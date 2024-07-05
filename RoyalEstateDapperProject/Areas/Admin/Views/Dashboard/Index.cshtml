@@ -69,10 +69,25 @@
     </div>
 </div>
 
+<div class="row">
+        @await Component.InvokeAsync("_ChartComponent")
+</div>
+
     <div class="row mt-5">
-        <div class="col-md-12">
+        <div class="col-12 d-flex justify-content-between">
+            <div>
             <h4>Real Estate Data</h4>
-            <hr />
+        </div>
+        <div class="">
+            <form method="get">
+                <div class="form-group d-flex">
+                    <input type="text" class="form-control mr-3" name="minPrice" required placeholder="Min. Fiyat" />
+                    <input type="text" class="form-control" required name="maxPrice" placeholder="Max. Fiyat" />
+                    <button type="submit" class="btn btn-primary ms-3 me-3">Ara</button>
+                    <a href="/Admin/Dashboard/Index" class="btn btn-warning">Filtreyi Sıfırla</a>
+                </div>
+            </form>
+        </div>
         </div>
     </div>
     <table class="table table-striped">
@@ -83,16 +98,24 @@
         <th>Fiyat</th>
         <th>Durum</th>
     </tr>
-    @foreach (var item in Model)
+    @if(Model.Count <= 0)
     {
-        <tr>
-            <td>@item.city</td>
-            <td>@item.street</td>
-            <td>@item.acre_lot</td>
-            <td>@item.price</td>
-            <td>@item.status</td>
-        </tr>
+        <div class="alert alert-danger">Aradığınız kriterlerde bir sonuç bulunamadı.</div>
     }
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.city</td>
+                <td>@item.street</td>
+                <td>@item.acre_lot</td>
+                <td>@item.price</td>
+                <td>@item.status</td>
+            </tr>
+        }
+    }
+    
     </table>
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
@@ -104,3 +127,5 @@
        })
         </div>
     </div>
+
+
